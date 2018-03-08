@@ -12,7 +12,7 @@ After that you will get a list of some related movies with the same name. choose
 ## EXAMPLE:
 
 ```
-./imdbfetcher  game of thrones
+./imdbfetcher  the guest
 ------------------------------
 1) Athidhi (2007) aka "Guest"
 2) Guest (II) (2010)
