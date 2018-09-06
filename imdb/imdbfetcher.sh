@@ -6,12 +6,12 @@ if [[ $# -eq 0 ]]; then
 	Options: [-m more results]"
 	exit 0
 elif [[ $1 == "-m" ]]; then
-	imdbURL="http://www.imdb.com/find?&s=tt&exact=true&ref_=fn_al_tt_ex&q="
+	imdbURL="https://www.imdb.com/find?&s=tt&exact=true&ref_=fn_al_tt_ex&q="
 else
 	imdbURL="https://www.imdb.com/find?ref_=nv_sr_fn&s=all&q="
 fi
 
-titleURL="http://www.imdb.com/title/tt"
+titleURL="https://www.imdb.com/title/tt"
 searchResults="/tmp/tmpSearchResults"
 tmpMoviesIDs="/tmp/tmpMoviesIDs"
 garbage="/dev/null"
@@ -24,7 +24,9 @@ checkConnection(){
 }
 getMoviesIDs(){
 	# get movies with their IDs
-	shift
+	if [[ $1 == "-m" ]]; then
+                shift
+        fi
 	searchName=$(echo "$@"| tr ' ' '+')
 	curl -s "$imdbURL$searchName" > $searchResults
 	#check if there is no results
